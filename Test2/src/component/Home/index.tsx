@@ -38,6 +38,18 @@ const HomeComponent = (props: any) => {
           <Button variant="info" type="submit" onClick={(e: any) => props?.handleLogin(e)}>Submit</Button>
         </Modal.Footer>
       </Modal>
+      <Modal show={props?.showError} onHide={() => props?.toggleModal("showError")}>
+        <Modal.Header className="bg-danger" closeButton>
+          <Modal.Title>ERROR</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Please login first!</Modal.Body>
+      </Modal>
+      <Modal show={props?.showSuccess} onHide={() => props?.toggleModal("showSuccess")}>
+        <Modal.Header className="bg-success" closeButton>
+          <Modal.Title>SUCCESS</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Package bought!</Modal.Body>
+      </Modal>
       <NavigationBar toggleModal={props?.toggleModal} handleLogout={props?.handleLogout}/>
       <Row className="my-5 mx-0" id="home">
         <Col md={{span: 6, offset:5}} className="text-center my-5 fs-4">
@@ -74,7 +86,7 @@ const HomeComponent = (props: any) => {
             <Card.Body>
               <Card.Title className="fw-bold">Basic<br/><h1 className="my-3">Rp25.000/mo</h1></Card.Title>
               <Row>
-                <Button variant="info fw-bold" size="lg">Choose Package</Button>
+                <Button variant="info fw-bold" size="lg" onClick={() => props?.handleBuyPackage()}>Choose Package</Button>
               </Row>
               <Card.Text className="mt-3">
                 <p className="fw-bold text-muted">Features</p>
@@ -92,7 +104,7 @@ const HomeComponent = (props: any) => {
             <Card.Body>
               <Card.Title className="fw-bold">Business<br/><h1 className="my-3">Rp55.000/mo</h1></Card.Title>
               <Row>
-                <Button variant="info fw-bold" size="lg">Choose Package</Button>
+                <Button variant="info fw-bold" size="lg" onClick={() => props?.handleBuyPackage()}>Choose Package</Button>
               </Row>
               <Card.Text className="mt-3">
                 <p className="fw-bold text-muted">Features</p>
@@ -112,7 +124,7 @@ const HomeComponent = (props: any) => {
             <Card.Body>
               <Card.Title className="fw-bold">Entrepreneur<br/><h1 className="my-3">Rp150.000/mo</h1></Card.Title>
               <Row>
-                <Button variant="info fw-bold" size="lg">Choose Package</Button>
+                <Button variant="info fw-bold" size="lg" onClick={() => props?.handleBuyPackage()}>Choose Package</Button>
               </Row>
               <Card.Text className="mt-3">
                 <p className="fw-bold text-muted">Features</p>

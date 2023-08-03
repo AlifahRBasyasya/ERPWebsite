@@ -17,6 +17,7 @@ export class HomeContainer extends PureComponent<any, any> {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleBuyPackage = this.handleBuyPackage.bind(this);
   }
 
   private toggleModal(name: string): void {
@@ -57,7 +58,15 @@ export class HomeContainer extends PureComponent<any, any> {
     return <Navigate to="/" />;
   }
 
-  
+  private handleBuyPackage(): void {
+    const user = localStorage.getItem("USER");
+    if (!user) {
+      this.toggleModal("showError");
+    }
+    else {
+      this.toggleModal("showSuccess");
+    }
+  }
 
   render() {
     const { showLogin, showError, showSuccess, username, password } = this.state;
@@ -72,6 +81,7 @@ export class HomeContainer extends PureComponent<any, any> {
         handleInputChange={this.handleInputChange}
         handleLogin={this.handleLogin}
         handleLogout={this.handleLogout}
+        handleBuyPackage={this.handleBuyPackage}
       />
     )
   }
