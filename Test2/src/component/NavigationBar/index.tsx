@@ -6,7 +6,7 @@ const NavigationBar = (props: any) => {
   const user = localStorage.getItem("USER");
   return (
     <Navbar collapseOnSelect expand="lg" className="m-3 fs-2">
-      <Navbar.Brand href="#home" className="text-white fw-bold fs-2 mx-3">
+      <Navbar.Brand href="#home" className="text-white fw-bold fs-2 p-2 mx-3">
         <Image src={logo} className="me-4"/>
         HOME
       </Navbar.Brand>
@@ -18,7 +18,6 @@ const NavigationBar = (props: any) => {
           <Nav.Link href="#contact" className="mx-3">CONTACT</Nav.Link>
           {user ?
             <>
-              <Nav.Link href="/dashboard" className="mx-3">DASHBOARD</Nav.Link>
               <Nav.Link className="mx-3">
                 <Button variant="outline-info" className="fw-bold px-5" onClick={() => props?.handleLogout()}>LOGOUT</Button>
               </Nav.Link>

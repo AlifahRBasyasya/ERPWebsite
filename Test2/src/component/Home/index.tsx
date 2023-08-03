@@ -57,8 +57,8 @@ const HomeComponent = (props: any) => {
             in our cutting-edge Enterprise Resource Planning solution.</p>
         </Col>
       </Row>
-      <Row className="my-5 mx-0 ps-5">
-        <Col xs={5} className="text-center fs-3 mt-5 px-5">
+      <Row className="my-5 mx-0">
+        <Col md={5} className="text-center fs-3 mt-5 px-5">
           <p><i>"Empowering business growth, harmoniously."</i></p>
           <Image src={homeVector} fluid />
         </Col>
