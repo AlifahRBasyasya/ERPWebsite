@@ -1,4 +1,4 @@
-import { Row, Col, Image, Card, Button, ListGroup } from 'react-bootstrap';
+import { Row, Col, Image, Card, Button, ListGroup, Modal, Form } from 'react-bootstrap';
 import homeVector from "../../assets/home.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +8,37 @@ import NavigationBar from '../NavigationBar';
 const HomeComponent = (props: any) => {
   return (
     <>
-      <NavigationBar />
+      <Modal show={props?.showLogin} onHide={() => props?.toggleModal("showLogin")}>
+        <Modal.Header closeButton>
+          <Modal.Title>LOGIN</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group>
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Type your username here"
+                name="username"
+                onChange={(e: any) => props?.handleInputChange(e)}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Type your password here"
+                name="password"
+                onChange={(e: any) => props?.handleInputChange(e)}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="info" type="submit" onClick={(e: any) => props?.handleLogin(e)}>Submit</Button>
+        </Modal.Footer>
+      </Modal>
+      <NavigationBar toggleModal={props?.toggleModal} handleLogout={props?.handleLogout}/>
       <Row className="my-5 mx-0" id="home">
         <Col md={{span: 6, offset:5}} className="text-center my-5 fs-4">
           <p>Welcome to ERP Assistant, where seamless integration, efficiency, and growth converge 
