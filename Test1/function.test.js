@@ -80,6 +80,8 @@ function arrayEquals(a, b) {
   );
 }
 
+
+// Unit Testing
 describe("Test Sort Array Function", () => {
   const res = sortDesc([1, 2, 4, 3, 5, 3, 2, 1]);
   const truth = [5, 4, 3, 3, 2, 2, 1, 1];
